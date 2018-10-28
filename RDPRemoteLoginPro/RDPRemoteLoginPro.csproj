@@ -78,7 +78,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\app.config" />
     <None Include="Resources\TemplateRDP.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

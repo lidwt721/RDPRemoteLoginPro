@@ -14,6 +14,12 @@ namespace RDPRemoteLoginPro
 {
     public partial class Form1 : Form
     {
+        private string _filename;
+
+        private string _address;
+        private string _linkName;
+        private string _username;
+        private string _password;
         public Form1()
         {
             InitializeComponent();
@@ -23,8 +29,6 @@ namespace RDPRemoteLoginPro
         {
             Connect();
             SaveConfig();
-
-
         }
         /// <summary>
         /// 执行命令行命令
@@ -54,60 +58,53 @@ namespace RDPRemoteLoginPro
 
         private void LoadConfig()
         {
-          
-
-            address = ConfigHelper.GetAppConfig("serverIP");
-            linkName = ConfigHelper.GetAppConfig("linkName");
-            username = ConfigHelper.GetAppConfig("user");
-            password = ConfigHelper.GetAppConfig("password");
-            filename = linkName + "0.rdp";
-            AddressComboBox.Text = address;
-            UsernameTextBox.Text = username;
-            PasswordTextBox.Text = password;
-            NameTextBox.Text = linkName;
+            _address = ConfigHelper.GetAppConfig("serverIP");
+            _linkName = ConfigHelper.GetAppConfig("linkName");
+            _username = ConfigHelper.GetAppConfig("user");
+            _password = ConfigHelper.GetAppConfig("password");
+            _filename = _linkName + "0" + ".rdp";
+            AddressComboBox.Text = _address;
+            UsernameTextBox.Text = _username;
+            PasswordTextBox.Text = _password;
+            NameTextBox.Text = _linkName;
         }
         private void SaveConfig()
         {
             ConfigHelper.UpdateAppConfig("serverIP", AddressComboBox.Text);
-            ConfigHelper.UpdateAppConfig("linkName", "NameTextBox.Text");
+            ConfigHelper.UpdateAppConfig("linkName", NameTextBox.Text);
             ConfigHelper.UpdateAppConfig("user", UsernameTextBox.Text);
             ConfigHelper.UpdateAppConfig("password", PasswordTextBox.Text);
             ConfigHelper.UpdateAppConfig("linkName", NameTextBox.Text);
         }
 
-        public string filename ;
 
-        public string address ;
-        public string linkName ;
-        public string username ;
-        public string password;
 
         private void Connect()
         {
-            if (string.IsNullOrEmpty(address) ||
-                string.IsNullOrEmpty(username) ||
-            string.IsNullOrEmpty(password) ||
+            if (string.IsNullOrEmpty(AddressComboBox.Text) ||
+                string.IsNullOrEmpty(UsernameTextBox.Text) ||
+            string.IsNullOrEmpty(PasswordTextBox.Text) ||
             string.IsNullOrEmpty(NameTextBox.Text.Trim())
                 )
             {
 
-                MessageBox.Show("请检查配置");
+                MessageBox.Show(@"请检查配置！");
                 return;
             }
-            AddressComboBox.Items.Add(address);
+            AddressComboBox.Items.Add(_address);
 
             var TemplateStr = RDPRemoteLoginPro.Properties.Resources.TemplateRDP;//获取RDP模板字符串
             //用DataProtection加密密码,并转化成二进制字符串
-            var pwstr = BitConverter.ToString(DataProtection.ProtectData(Encoding.Unicode.GetBytes(password), ""));
+            var pwstr = BitConverter.ToString(DataProtection.ProtectData(Encoding.Unicode.GetBytes(_password), ""));
             pwstr = pwstr.Replace("-", "");
             //替换模板里面的关键字符串,生成当前的drp字符串
-            var NewStr = TemplateStr.Replace("{#address}", address).Replace("{#username}", username).Replace("{#password}", pwstr);
+            var NewStr = TemplateStr.Replace("{#address}", AddressComboBox.Text).Replace("{#username}", UsernameTextBox.Text).Replace("{#password}", pwstr);
             //将drp保存到文件，并放在程序目录下，等待使用
-            StreamWriter sw = new StreamWriter(filename);
+            StreamWriter sw = new StreamWriter(_filename);
             sw.Write(NewStr);
             sw.Close();
             //利用CMD命令调用MSTSC
-            ProcCmd("mstsc -admin " + filename);
+            ProcCmd("mstsc -admin " + _filename);
 
             this.ShowInTaskbar = true;
             this.WindowState = FormWindowState.Minimized;//使当前窗体最小化

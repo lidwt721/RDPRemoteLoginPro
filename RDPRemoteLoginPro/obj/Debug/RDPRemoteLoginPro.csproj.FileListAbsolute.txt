@@ -26,3 +26,11 @@ F:\C#Test\远程桌面登陆demo\aaaa\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\De
 F:\C#Test\远程桌面登陆demo\aaaa\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\RDPRemoteLoginPro.csproj.CoreCompileInputs.cache
 F:\C#Test\远程桌面登陆demo\aaaa\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\远程桌面AutoPro.exe
 F:\C#Test\远程桌面登陆demo\aaaa\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\远程桌面AutoPro.pdb
+F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\远程桌面AutoPro.exe
+F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\远程桌面AutoPro.pdb
+F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\bin\Debug\远程桌面AutoPro.exe
+F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\bin\Debug\远程桌面AutoPro.pdb
+F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\RDPRemoteLoginPro.Form1.resources
+F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\RDPRemoteLoginPro.Properties.Resources.resources
+F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\RDPRemoteLoginPro.csproj.GenerateResource.cache
+F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\RDPRemoteLoginPro.csproj.CoreCompileInputs.cache
