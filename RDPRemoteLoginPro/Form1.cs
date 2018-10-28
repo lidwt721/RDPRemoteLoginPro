@@ -62,7 +62,6 @@ namespace RDPRemoteLoginPro
             _linkName = ConfigHelper.GetAppConfig("linkName");
             _username = ConfigHelper.GetAppConfig("user");
             _password = ConfigHelper.GetAppConfig("password");
-            _filename = _linkName + "0" + ".rdp";
             AddressComboBox.Text = _address;
             UsernameTextBox.Text = _username;
             PasswordTextBox.Text = _password;
@@ -95,11 +94,12 @@ namespace RDPRemoteLoginPro
 
             var TemplateStr = RDPRemoteLoginPro.Properties.Resources.TemplateRDP;//获取RDP模板字符串
             //用DataProtection加密密码,并转化成二进制字符串
-            var pwstr = BitConverter.ToString(DataProtection.ProtectData(Encoding.Unicode.GetBytes(_password), ""));
+            var pwstr = BitConverter.ToString(DataProtection.ProtectData(Encoding.Unicode.GetBytes(PasswordTextBox.Text), ""));
             pwstr = pwstr.Replace("-", "");
             //替换模板里面的关键字符串,生成当前的drp字符串
             var NewStr = TemplateStr.Replace("{#address}", AddressComboBox.Text).Replace("{#username}", UsernameTextBox.Text).Replace("{#password}", pwstr);
             //将drp保存到文件，并放在程序目录下，等待使用
+            _filename = NameTextBox.Text + "0" + ".rdp";
             StreamWriter sw = new StreamWriter(_filename);
             sw.Write(NewStr);
             sw.Close();
