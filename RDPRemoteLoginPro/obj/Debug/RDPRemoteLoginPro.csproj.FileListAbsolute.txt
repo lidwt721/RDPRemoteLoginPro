@@ -35,3 +35,4 @@ F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Deb
 F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\RDPRemoteLoginPro.csproj.GenerateResource.cache
 F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\RDPRemoteLoginPro.csproj.CoreCompileInputs.cache
 F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\obj\Debug\RDPRemoteLoginPro.csprojAssemblyReference.cache
+F:\C#Test\远程桌面登陆demo\bbb\RDPRemoteLoginPro\RDPRemoteLoginPro\bin\Debug\远程桌面AutoPro.exe.config
