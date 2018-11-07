@@ -90,7 +90,12 @@ namespace RDPRemoteLoginPro
                 MessageBox.Show(@"请检查配置！");
                 return;
             }
-            AddressComboBox.Items.Add(_address);
+
+            if (!AddressComboBox.Items.Contains(_address))
+            {
+                AddressComboBox.Items.Add(_address);
+            }
+
 
             var TemplateStr = RDPRemoteLoginPro.Properties.Resources.TemplateRDP;//获取RDP模板字符串
             //用DataProtection加密密码,并转化成二进制字符串
@@ -108,6 +113,11 @@ namespace RDPRemoteLoginPro
 
             this.ShowInTaskbar = true;
             this.WindowState = FormWindowState.Minimized;//使当前窗体最小化
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ProcCmd(@"D:\soft\cmder\Cmder.exe " + AddressComboBox.Text);
         }
     }
 }
